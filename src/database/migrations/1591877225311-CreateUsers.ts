@@ -51,7 +51,7 @@ export default class CreateUsers1591877225311 implements MigrationInterface {
           },
           {
             name: 'points',
-            type: 'bigint',
+            type: 'int',
             isNullable: false,
             default: 0,
           },

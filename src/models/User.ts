@@ -27,7 +27,7 @@ class User {
   nickname: string;
 
   @Column()
-  points: BigInt;
+  points: number;
 
   @CreateDateColumn()
   created_at: Date;
