@@ -4,15 +4,15 @@ import Word from '../models/Word';
 import AppError from '../errors/AppError';
 
 interface Request {
-  word: string;
+  term: string;
   rhyme_id: string;
 }
 
 class CreateWordService {
-  public async execute({ word, rhyme_id }: Request): Promise<Word> {
+  public async execute({ term, rhyme_id }: Request): Promise<Word> {
     const wordRepository = getRepository(Word);
     const checkWordExists = await wordRepository.findOne({
-      where: { word },
+      where: { term },
     });
 
     if (checkWordExists) {
@@ -20,7 +20,7 @@ class CreateWordService {
     }
 
     const wordCreated = wordRepository.create({
-      word,
+      term,
       rhyme_id,
     });
     await wordRepository.save(wordCreated);

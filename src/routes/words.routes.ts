@@ -13,10 +13,10 @@ wordsRouter.use(ensureAuthenticated);
 const upload = multer(uploadConfig);
 
 wordsRouter.post('/', async (request, response) => {
-  const { word, rhyme_id } = request.body;
+  const { term, rhyme_id } = request.body;
   const createWord = new CreateWordService();
 
-  const wordCreated = createWord.execute({ word, rhyme_id });
+  const wordCreated = createWord.execute({ term, rhyme_id });
 
   return response.json(wordCreated);
 });

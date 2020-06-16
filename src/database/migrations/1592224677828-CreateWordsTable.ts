@@ -15,7 +15,7 @@ export default class CreateWordsTable1592224677828
             default: 'uuid_generate_v4()',
           },
           {
-            name: 'word',
+            name: 'term',
             type: 'varchar',
             isNullable: false,
           },

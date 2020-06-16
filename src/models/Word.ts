@@ -9,13 +9,13 @@ import {
 } from 'typeorm';
 import Rhyme from './Rhyme';
 
-@Entity('users')
+@Entity('words')
 class Word {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
-  word: string;
+  term: string;
 
   @Column()
   image: string;

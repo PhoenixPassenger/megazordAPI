@@ -11,7 +11,7 @@ rhymesRouter.post('/', async (request, response) => {
   const { syllable } = request.body;
   const createRhyme = new CreateRhymeService();
 
-  const rhyme = createRhyme.execute({ syllable });
+  const rhyme = await createRhyme.execute({ syllable });
 
   return response.json(rhyme);
 });
