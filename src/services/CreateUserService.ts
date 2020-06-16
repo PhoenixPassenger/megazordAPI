@@ -23,8 +23,16 @@ class CreateUserService {
       where: { email },
     });
 
+    const checkUserNicknameExists = await userRepository.findOne({
+      where: { nickname },
+    });
+
     if (checkUserExists) {
       throw new AppError('Email address already used.');
+    }
+
+    if (checkUserNicknameExists) {
+      throw new AppError('Nickname already used.');
     }
 
     const user = userRepository.create({

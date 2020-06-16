@@ -1,4 +1,5 @@
-import { Router } from 'express';
+/* eslint-disable no-shadow */
+import { Router, request, response } from 'express';
 import { hash } from 'bcryptjs';
 import multer from 'multer';
 import uploadConfig from '../config/upload';
@@ -6,6 +7,7 @@ import uploadConfig from '../config/upload';
 import CreateUserService from '../services/CreateUserService';
 import UpdateUserAvatarService from '../services/UpdateUserAvatarService';
 import ControlPointsService from '../services/ControlPointsService';
+import GenerateRankingService from '../services/GenerateRankingService';
 
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
@@ -56,6 +58,13 @@ usersRouter.patch('/points', ensureAuthenticated, async (request, response) => {
   });
 
   return response.json(user);
+});
+
+usersRouter.get('/ranking', async (request, response) => {
+  const generateRanking = new GenerateRankingService();
+
+  const ranking = await generateRanking.execute();
+  return response.json(ranking);
 });
 
 export default usersRouter;

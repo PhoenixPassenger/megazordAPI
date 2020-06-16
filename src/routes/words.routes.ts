@@ -22,11 +22,11 @@ wordsRouter.post('/', async (request, response) => {
 });
 
 wordsRouter.patch(
-  '/image',
+  '/image/:word_id',
   ensureAuthenticated,
   upload.single('image'),
   async (request, response) => {
-    const { word_id } = request.body;
+    const { word_id } = request.params;
     const updateWordImage = new UpdateWordImageService();
 
     const word = await updateWordImage.execute({

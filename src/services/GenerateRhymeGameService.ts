@@ -26,6 +26,9 @@ class GenerateRhymeGameService {
       .createQueryBuilder()
       .orderBy('RANDOM()')
       .getMany();
+    if (rhymes.length <= numberOfRhymes) {
+      throw new AppError('Not enougth rhymes', 500);
+    }
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < numberOfRhymes; i++) {
       const words = await wordRepository
@@ -34,9 +37,7 @@ class GenerateRhymeGameService {
         .limit(numberOfWords)
         .getMany();
       game.push(words);
-      // console.log(words);
     }
-    console.log(game);
     return game;
   }
 }
