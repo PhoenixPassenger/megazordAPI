@@ -13,7 +13,7 @@ interface Request {
   avatarFilename: string;
 }
 
-class UpdateUSerAvatarService {
+class UpdateUserAvatarService {
   public async execute({ user_id, avatarFilename }: Request): Promise<User> {
     const userRepository = getRepository(User);
 
@@ -43,4 +43,4 @@ class UpdateUSerAvatarService {
   }
 }
 
-export default UpdateUSerAvatarService;
+export default UpdateUserAvatarService;
