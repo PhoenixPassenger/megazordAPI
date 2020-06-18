@@ -61,8 +61,12 @@
 ---
 ## Rotas de jogos :
   - Gerar partida de rimas -> get:url/game/rhyme
+  ```
   Body{
 	"numberOfRhymes" : 2,
 	"numberOfWords" : 2
   }
+  ```
   Sendo "numberOfWords" o número de palavras por rima.
+
+  - Gerar ranking -> get:url/users/ranking
