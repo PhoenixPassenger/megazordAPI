@@ -4,7 +4,7 @@ import GenerateRhymeGameService from '../services/GenerateRhymeGameService';
 
 const gameRouter = Router();
 
-gameRouter.get('/rhyme', async (request, response) => {
+gameRouter.post('/rhyme', async (request, response) => {
   const { numberOfRhymes, numberOfWords } = request.body;
   const generateRhymeGame = new GenerateRhymeGameService();
 
