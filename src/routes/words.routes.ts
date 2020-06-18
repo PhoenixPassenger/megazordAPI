@@ -16,7 +16,7 @@ wordsRouter.post('/', async (request, response) => {
   const { term, rhyme_id } = request.body;
   const createWord = new CreateWordService();
 
-  const wordCreated = createWord.execute({ term, rhyme_id });
+  const wordCreated = await createWord.execute({ term, rhyme_id });
 
   return response.json(wordCreated);
 });
