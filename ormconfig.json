@@ -1,7 +1,7 @@
 {
   "name": "default",
   "type": "postgres",
-  "url": "postgres://username:password@hostname:5432/databasename",
+  "url": process.env.DATABASE_URL,
   "synchronize": false,
   "logging": true,
   "ssl": true,
