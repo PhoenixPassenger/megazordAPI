@@ -1,4 +1,4 @@
-{
+module.exports = {
   "type" : "postgres",
   "host" : "ec2-52-6-143-153.compute-1.amazonaws.com",
   "port" : 5432,
@@ -9,10 +9,10 @@
     "ssl": true
     },
   "entities": [
-    "./src/models/*.ts"
+    "./dist/models/*.js"
   ],
   "migrations" : [
-    "./src/database/migrations/*.ts"
+    "./dist/database/migrations/*.js"
   ],
   "cli":{
     "migrationsDir" : "./src/database/migrations"
