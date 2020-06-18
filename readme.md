@@ -1,5 +1,5 @@
-#Rotas da aplicação:
-##Rotas de usuário:
+# Rotas da aplicação:
+## Rotas de usuário:
   - Criação de usuário -> post:url/users
   ```
   Body{
@@ -33,7 +33,7 @@
   ```
   - Obtenção do ranking -> get:url/users/raking
 ---
-##Rotas de Rimas:
+## Rotas de Rimas:
   - Criar rimas -> post:url/rymes
   ```
   Body{
@@ -42,7 +42,7 @@
   Header -> Token JWT
   ```
 ---
-##Rotas de Palavras:
+## Rotas de Palavras:
   - Criar palavras -> post:url/words
   ```
   Body{
@@ -59,7 +59,7 @@
   Header -> Token JWT, wordId
   ```
 ---
-##Rotas de jogos :
+## Rotas de jogos :
   - Gerar partida de rimas -> get:url/game/rhyme
   Body{
 	"numberOfRhymes" : 2,
