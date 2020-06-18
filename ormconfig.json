@@ -9,7 +9,6 @@
     "ssl": true
     },
   "entities": [
-    "./dist/models/*.js",
     "./src/models/*.ts"
   ],
   "migrations" : [
