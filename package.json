@@ -4,7 +4,7 @@
   "main": "dist/server.js",
   "license": "MIT",
   "scripts": {
-    "build": "yarn",
+    "build": "yarn install",
     "start": "ts-node-dev --inspect --transpileOnly --ignore-watch node_modules src/server.ts",
     "postinstall": "npm run build",
     "start 2": "npm run serve",
