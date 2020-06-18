@@ -26,7 +26,7 @@ class GenerateRhymeGameService {
       .createQueryBuilder()
       .orderBy('RANDOM()')
       .getMany();
-    if (rhymes.length <= numberOfRhymes) {
+    if (rhymes.length < numberOfRhymes) {
       throw new AppError('Not enougth rhymes', 500);
     }
     // eslint-disable-next-line no-plusplus
