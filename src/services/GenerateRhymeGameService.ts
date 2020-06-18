@@ -35,6 +35,7 @@ class GenerateRhymeGameService {
         .createQueryBuilder()
         .where({ rhyme_id: rhymes[i].id })
         .limit(numberOfWords)
+        .orderBy('RANDOM()')
         .getMany();
       game.push(words);
     }
