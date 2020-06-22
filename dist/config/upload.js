@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var multer_1 = __importDefault(require("multer"));
 var path_1 = __importDefault(require("path"));
 var crypto_1 = __importDefault(require("crypto"));
-var tmpFolder = path_1.default.resolve(__dirname, '..', '..', 'tmp');
+var tmpFolder = path_1.default.resolve(__dirname, '..','..', '..', 'tmp');
 exports.default = {
     directory: tmpFolder,
     storage: multer_1.default.diskStorage({
