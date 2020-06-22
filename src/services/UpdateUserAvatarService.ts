@@ -23,15 +23,15 @@ class UpdateUserAvatarService {
       throw new AppError('error in user', 401);
     }
 
-    if (user.avatar) {
-      // delete previous avatar
-      // const userAvatarFilePath = path.join(uploadConfig.directory, user.avatar);
-      // const userAvatarFileExists = await fs.promises.stat(userAvatarFilePath);
-      user.avatar = '';
-      // if (userAvatarFileExists) {
-      //   await fs.promises.unlink(userAvatarFilePath);
-      // }
-    }
+    // if (user.avatar) {
+    //   // delete previous avatar
+    //   // const userAvatarFilePath = path.join(uploadConfig.directory, user.avatar);
+    //   // const userAvatarFileExists = await fs.promises.stat(userAvatarFilePath);
+    //   user.avatar = '';
+    //   // if (userAvatarFileExists) {
+    //   //   await fs.promises.unlink(userAvatarFilePath);
+    //   // }
+    // }
 
     user.avatar = avatarFilename;
 

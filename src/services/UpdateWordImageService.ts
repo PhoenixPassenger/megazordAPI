@@ -23,15 +23,15 @@ class UpdateWordImageService {
       throw new AppError('error in word', 401);
     }
 
-    if (word.image) {
-      // delete previous image
-      // const wordImageFilePath = path.join(uploadConfig.directory, word.image);
-      // const wordImageFileExists = await fs.promises.stat(wordImageFilePath);
-      word.image = '';
-      // if (wordImageFileExists) {
-      //   await fs.promises.unlink(wordImageFilePath);
-      // }
-    }
+    // if (word.image) {
+    //   // delete previous image
+    //   // const wordImageFilePath = path.join(uploadConfig.directory, word.image);
+    //   // const wordImageFileExists = await fs.promises.stat(wordImageFilePath);
+    //   word.image = '';
+    //   // if (wordImageFileExists) {
+    //   //   await fs.promises.unlink(wordImageFilePath);
+    //   // }
+    // }
 
     word.image = imageFilename;
 
