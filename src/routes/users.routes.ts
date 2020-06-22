@@ -33,21 +33,16 @@ usersRouter.post('/', async (request, response) => {
   return response.json(user);
 });
 
-usersRouter.patch(
-  '/avatar',
-  ensureAuthenticated,
-  upload.single('avatar'),
-  async (request, response) => {
-    const updateUserAvatar = new UpdateUserAvatarService();
+usersRouter.patch('/avatar', ensureAuthenticated, async (request, response) => {
+  const updateUserAvatar = new UpdateUserAvatarService();
+  const { image } = request.body;
+  const user = await updateUserAvatar.execute({
+    user_id: request.user.id,
+    avatarFilename: image,
+  });
 
-    const user = await updateUserAvatar.execute({
-      user_id: request.user.id,
-      avatarFilename: request.file.filename,
-    });
-
-    return response.json(user);
-  },
-);
+  return response.json(user);
+});
 
 usersRouter.patch('/points', ensureAuthenticated, async (request, response) => {
   const { points } = request.body;

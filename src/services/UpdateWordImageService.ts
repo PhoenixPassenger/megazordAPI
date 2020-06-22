@@ -25,12 +25,12 @@ class UpdateWordImageService {
 
     if (word.image) {
       // delete previous image
-      const wordImageFilePath = path.join(uploadConfig.directory, word.image);
-      const wordImageFileExists = await fs.promises.stat(wordImageFilePath);
-
-      if (wordImageFileExists) {
-        await fs.promises.unlink(wordImageFilePath);
-      }
+      // const wordImageFilePath = path.join(uploadConfig.directory, word.image);
+      // const wordImageFileExists = await fs.promises.stat(wordImageFilePath);
+      word.image = '';
+      // if (wordImageFileExists) {
+      //   await fs.promises.unlink(wordImageFilePath);
+      // }
     }
 
     word.image = imageFilename;

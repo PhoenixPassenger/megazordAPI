@@ -24,14 +24,13 @@ wordsRouter.post('/', async (request, response) => {
 wordsRouter.patch(
   '/image/:word_id',
   ensureAuthenticated,
-  upload.single('image'),
   async (request, response) => {
     const { word_id } = request.params;
     const updateWordImage = new UpdateWordImageService();
-
+    const { image } = request.body;
     const word = await updateWordImage.execute({
       word_id,
-      imageFilename: request.file.filename,
+      imageFilename: image,
     });
 
     return response.json(word);
