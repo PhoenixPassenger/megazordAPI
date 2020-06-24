@@ -42,7 +42,7 @@ class CreateUserService {
       throw new AppError('Email address already used.');
     }
 
-    if (checkValidEmail) {
+    if (!checkValidEmail) {
       throw new AppError('Invalid email address.');
     }
 
