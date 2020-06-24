@@ -19,6 +19,17 @@ class CreateUserService {
   }: Request): Promise<User> {
     const userRepository = getRepository(User);
     const zeroPoints = 0;
+
+    function validateEmail(): boolean {
+      const re = new RegExp(
+        // eslint-disable-next-line no-useless-escape
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      );
+      return re.test(String(email).toLowerCase());
+    }
+
+    const checkValidEmail = validateEmail();
+
     const checkUserExists = await userRepository.findOne({
       where: { email },
     });
@@ -29,6 +40,10 @@ class CreateUserService {
 
     if (checkUserExists) {
       throw new AppError('Email address already used.');
+    }
+
+    if (checkValidEmail) {
+      throw new AppError('Invalid email address.');
     }
 
     if (checkUserNicknameExists) {
